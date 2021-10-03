@@ -1,0 +1,64 @@
+﻿@model MVC.Models.Contum
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Contum</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CodConta" />
+            <div class="form-group">
+                <label asp-for="Agencia" class="control-label"></label>
+                <input asp-for="Agencia" class="form-control" />
+                <span asp-validation-for="Agencia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumeroConta" class="control-label"></label>
+                <input asp-for="NumeroConta" class="form-control" />
+                <span asp-validation-for="NumeroConta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CodigoBanco" class="control-label"></label>
+                <input asp-for="CodigoBanco" class="form-control" />
+                <span asp-validation-for="CodigoBanco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CodCli" class="control-label"></label>
+                <select asp-for="CodCli" class="form-control" asp-items="ViewBag.CodCli"></select>
+                <span asp-validation-for="CodCli" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SaldoInicial" class="control-label"></label>
+                <input asp-for="SaldoInicial" class="form-control" />
+                <span asp-validation-for="SaldoInicial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SaldoAtual" class="control-label"></label>
+                <input asp-for="SaldoAtual" class="form-control" />
+                <span asp-validation-for="SaldoAtual" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CodTipoConta" class="control-label"></label>
+                <select asp-for="CodTipoConta" class="form-control" asp-items="ViewBag.CodTipoConta"></select>
+                <span asp-validation-for="CodTipoConta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<MVC.Models.Contum>
+
+@{
+    ViewData["Title"] = "Lista de contas";
+}
+
+<h1>Lista de contas</h1>
+
+<p>
+    <a asp-action="Create">Criar nova conta</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Agencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroConta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodigoBanco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SaldoInicial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SaldoAtual)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Agencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroConta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoBanco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SaldoInicial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SaldoAtual)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CodConta">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.CodConta">Detalhe</a> |
+                <a asp-action="Delete" asp-route-id="@item.CodConta">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
